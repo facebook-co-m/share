@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copy All Interface</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f4f6f8;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px}
+.card{background:#fff;max-width:500px;width:100%;padding:25px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+h1{margin:0 0 12px;font-size:28px;text-align:center}
+#textBox{width:100%;min-height:180px;border:1px solid #ddd;border-radius:12px;padding:14px;font-size:16px;resize:vertical;box-sizing:border-box}
+button{margin-top:16px;width:100%;padding:14px;border:none;border-radius:12px;background:#2563eb;color:#fff;font-size:18px;font-weight:700;cursor:pointer}
+button:hover{opacity:.95}
+.small{margin-top:10px;text-align:center;color:#555;font-size:14px}
+</style>
+</head>
+<body>
+<div class="card">
+<h1 contenteditable="true">আপনার বন্ধুকে লেখাটি দিন। 
+ফ্রিতে ১০০ টাকা নিন💸</h1>
+<textarea id="textBox">Görüntülü Seks Hizmeti
+ビデオセックスサービス 10分 150タカ 20分 210タカ 30分 310タカ 40分 410タカ 1時間 510タカ　お支払い前に写真撮影やビデオ通話はいたしません。 無料サンプルは提供しておりません。 100%保証</textarea> <button onclick="copyAll()">COPY ALL</button>
+
+
+<div class="small" id="msg"> </div>
+</div>
+<script>
+function copyAll(){
+const title=document.querySelector('h1').innerText.trim();
+const text=document.getElementById('textBox').value.trim();
+const all=title+'\n\n'+text;
+navigator.clipboard.writeText(all).then(()=>{
+document.getElementById('msg').innerText='সব লেখা কপি হয়েছে!';
+}).catch(()=>{
+document.getElementById('msg').innerText='কপি করা যায়নি';
+});
+}
+</script>
+</body>
+</html>
